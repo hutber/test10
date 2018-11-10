@@ -1,15 +1,15 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import renderer from 'react-test-renderer';
 import Header from './index';
 
-const ShallowHeader = shallow(<Header copy='Idea Board' />);
 describe('<Header />', () => {
 	it('renders without crashing', () => {
-		ShallowHeader
+		shallow(<Header copy='Idea Board' />)
 	});
-	it('We correctly output copy', () => {
-
+	it('We are an h2', () => {
+		const h2 = mount(<Header copy='Idea Board' componentType='h2'/>);
+		expect(h2.find('h2').exists()).toBeTruthy()
 	});
 	it('Creates a snapshot', () => {
 		const HeaderInJson = renderer

@@ -1,13 +1,22 @@
 import React, { PureComponent } from 'react';
-import { Header } from '../../components/shared';
-import Layout from '../../components/layout'
+import PropTypes from 'prop-types';
 
-export default class Index extends PureComponent {
+//Components
+import Layout from '../../components/layout'
+import App from '../../components/appBar'
+
+class Index extends PureComponent {
     render() {
         return (
             <Layout>
-	            <Header copy='Idea Board' />
+	            <App />
             </Layout>
         );
     }
 }
+
+Index.propTypes = {
+	classes: PropTypes.object.isRequired,
+};
+
+export default Index;

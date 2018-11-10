@@ -1,0 +1,8 @@
+:root {
+    /* Sizes */
+    --backgroundColor: #dDD;
+}
+
+body {
+    background-color: var(--backgroundColor);
+}

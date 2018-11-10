@@ -4,16 +4,8 @@ import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 
-const styles = theme => ({
-	root: {
-		flexGrow: 1,
-	},
-	paper: {
-		padding: theme.spacing.unit * 2,
-		textAlign: 'center',
-		color: theme.palette.text.secondary,
-	},
-});
+//thenes
+import { layoutTheme } from '../../themes'
 
 function FullWidthGrid(props) {
 	const { classes, children } = props;
@@ -22,8 +14,8 @@ function FullWidthGrid(props) {
 		<div className={classes.root}>
 			<Grid container spacing={24}>
 				<Grid item xs={12}>
-					{children}
 					<Paper className={classes.paper}>
+						{children}
 					</Paper>
 				</Grid>
 			</Grid>
@@ -35,4 +27,4 @@ FullWidthGrid.propTypes = {
 	classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(FullWidthGrid);
+export default withStyles(layoutTheme)(FullWidthGrid);
