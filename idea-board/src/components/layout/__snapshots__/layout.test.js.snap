@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Layout /> Creates a snapshot 1`] = `
+<div
+  className="FullWidthGrid-root-1"
+>
+  <div
+    className="MuiGrid-container-3 MuiGrid-spacing-xs-24-27"
+  >
+    <div
+      className="MuiGrid-item-4 MuiGrid-grid-xs-12-43"
+    >
+      <div
+        className="MuiPaper-root-100 MuiPaper-elevation2-104 MuiPaper-rounded-101 FullWidthGrid-paper-2"
+      />
+    </div>
+  </div>
+</div>
+`;

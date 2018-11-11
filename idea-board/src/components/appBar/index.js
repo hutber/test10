@@ -53,7 +53,7 @@ class PrimarySearchAppBar extends PureComponent {
 								<AddIcon />
 							</IconButton>
 							<IconButton color="inherit">
-								<Badge badgeContent={this.props.ideas.length} color="secondary">
+								<Badge badgeContent={this.props.ideas.items.length} color="secondary">
 									<NotificationsIcon />
 								</Badge>
 							</IconButton>
@@ -73,7 +73,7 @@ const withStylesComponent = withStyles(appBar)(PrimarySearchAppBar);
 
 function mapStateToProps (state){
 	return {
-		ideas: state.ideas.items
+		ideas: state.ideas
 	}
 }
 

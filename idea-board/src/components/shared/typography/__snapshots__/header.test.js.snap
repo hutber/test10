@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`<Header /> Creates a snapshot 1`] = `
-<h1
-  className="MuiTypography-root-1 MuiTypography-h1-13 MuiTypography-gutterBottom-28 MuiTypography-alignCenter-24"
->
-  Idea Board
-</h1>
-`;
