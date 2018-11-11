@@ -1,20 +1,22 @@
-import { CLOSE_NOTIFICATION, SET_NOTIFICATION } from '../../actions/ideas';
+import { ADD_IDEA } from '../../actions/ideas';
+
+const emptyIdea = {
+	title: '',
+	description: '',
+	createdDate: new Date(),
+	updatedDate: new Date()
+};
 
 const initialState = {
-  open: false,
-  messageType: '',
-  message: ''
+  items: [emptyIdea]
 };
 
 export default function(state = initialState, action) {
   switch (action.type) {
-    case SET_NOTIFICATION:
-    case CLOSE_NOTIFICATION:
+	  case ADD_IDEA:
       return {
         ...state,
-        open: action.open,
-        messageType: action.messageType,
-        message: action.message
+	      items: [...state.items, emptyIdea]
       };
     default:
       return state;

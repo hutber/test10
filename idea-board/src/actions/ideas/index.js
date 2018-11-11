@@ -1,20 +1,7 @@
-export const SET_NOTIFICATION = 'SET_NOTIFICATION';
-export const CLOSE_NOTIFICATION = 'CLOSE_NOTIFICATION';
+export const ADD_IDEA = 'ADD_IDEA';
 
-export function setNavigationMessage(details) {
+export function addNewIdea() {
   return {
-    type: SET_NOTIFICATION,
-    open: true,
-    messageType: details.messageType,
-    message: details.message
-  };
-}
-
-export function closeNavigation() {
-  return {
-    type: CLOSE_NOTIFICATION,
-    open: false,
-    messageType: '',
-    message: ''
+    type: ADD_IDEA
   };
 }
