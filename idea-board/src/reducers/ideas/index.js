@@ -12,6 +12,7 @@ const initialState = {
 };
 
 export default function(state = initialState, action) {
+	const copyOfIdeas = state.items;
   switch (action.type) {
 	  case ADD_IDEA:
       return {
@@ -19,20 +20,20 @@ export default function(state = initialState, action) {
 	      items: [...state.items, emptyIdea]
       };
 	  case REMOVE_IDEA:
+		  copyOfIdeas.splice(action.ideaId, 1);
       return {
         ...state,
-	      items: [...state.items.splice(action.ideaId)]
+	      items: copyOfIdeas
       };
 	  case EDIT_IDEA:
-		  const newItems = state.items;
-		  newItems[action.ideaId] = {
+		  copyOfIdeas[action.ideaId] = {
 		  ...state.items[action.ideaId],
 			  title: action.editText,
 			  updatedDate: new Date()
 		  };
       return {
         ...state,
-	      items: newItems
+	      items: copyOfIdeas
       };
     default:
       return state;

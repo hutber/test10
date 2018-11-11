@@ -28,7 +28,8 @@ class component extends PureComponent {
 	};
 
 	limitCharacters ({currentTarget}) {
-		return maxLength(5)(currentTarget.value);
+		const values = maxLength(5)(currentTarget.value);
+		console.info(values);
 	};
 
 	editField ({currentTarget}, index) {
@@ -41,10 +42,10 @@ class component extends PureComponent {
 	}
 
 	render() {
-		const {ideas} = this.props;
+		const {ideas: {items}} = this.props;
 		return (
 			<Grid container spacing={8}>
-				{ideas.map((item, index) => <Grid item xs={4}>
+				{items.map((item, index) => <Grid item xs={4}>
 					<Paper key={`${item.title}_as`}>
 						<TextField
 							id={`title_${index}`}
@@ -52,7 +53,7 @@ class component extends PureComponent {
 							defaultValue={item.title}
 							margin="normal"
 							variant="outlined"
-							onChange={(el) => {this.editField(el, index)}}
+							onBlur={(el) => {this.editField(el, index)}}
 						/>
 						<TextField
 							id={`description_${index}`}
@@ -62,6 +63,7 @@ class component extends PureComponent {
 							margin="normal"
 							variant="outlined"
 							disabled={false}
+							onBlur={(el) => {this.editField(el, index)}}
 							onChange={this.limitCharacters}
 						/>
 						<TypographyComp variantType='body1'>
@@ -88,7 +90,7 @@ const withStylesComponent = withStyles(appBar)(component);
 
 function mapStateToProps(state){
 	return {
-		ideas: state.ideas.items
+		ideas: state.ideas
 	}
 }
 export default connect(mapStateToProps)(withStylesComponent);
