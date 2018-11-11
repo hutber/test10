@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
 
 //Components
 import Layout from '../../components/layout'
@@ -16,9 +15,5 @@ class Index extends PureComponent {
         );
     }
 }
-
-Index.propTypes = {
-	classes: PropTypes.object.isRequired,
-};
 
 export default Index;

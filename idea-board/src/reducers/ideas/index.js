@@ -1,4 +1,4 @@
-import { ADD_IDEA } from '../../actions/ideas';
+import { ADD_IDEA, REMOVE_IDEA } from '../../actions/ideas';
 
 const emptyIdea = {
 	title: '',
@@ -17,6 +17,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
 	      items: [...state.items, emptyIdea]
+      };
+	  case REMOVE_IDEA:
+      return {
+        ...state,
+	      items: [...state.items.splice(action.ideaId)]
       };
     default:
       return state;

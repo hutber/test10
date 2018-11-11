@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -20,8 +20,8 @@ import { appBar } from '../../themes';
 //actions
 import { addNewIdea } from '../../actions/ideas'
 
-class PrimarySearchAppBar extends React.Component {
-	handleAddIdeaToBoard = event => {
+class PrimarySearchAppBar extends PureComponent {
+	handleAddIdeaToBoard = () => {
 		this.props.dispatch(addNewIdea());
 	};
 
