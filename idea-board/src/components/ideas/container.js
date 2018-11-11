@@ -20,15 +20,24 @@ import { maxLength } from '../../helpers/validation'
 import { appBar } from "../../themes";
 
 //actions
-import { removeIdea } from '../../actions/ideas';
+import { removeIdea, editIdea } from '../../actions/ideas';
 
 class component extends PureComponent {
-	deleteIdea = (ideaIndex) => {
+	deleteIdea (ideaIndex) {
 		this.props.dispatch(removeIdea(ideaIndex));
 	};
 
-	limitCharacters = ({currentTarget}) => {
+	limitCharacters ({currentTarget}) {
 		return maxLength(5)(currentTarget.value);
+	};
+
+	editField ({currentTarget}, index) {
+		const editType = currentTarget.id.split('_')[0];
+		this.props.dispatch(editIdea({
+			ideaId: index,
+			editText: currentTarget.value,
+			editType
+		}));
 	}
 
 	render() {
@@ -43,6 +52,7 @@ class component extends PureComponent {
 							defaultValue={item.title}
 							margin="normal"
 							variant="outlined"
+							onChange={(el) => {this.editField(el, index)}}
 						/>
 						<TextField
 							id={`description_${index}`}
