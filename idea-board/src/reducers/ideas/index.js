@@ -1,13 +1,14 @@
 import { ADD_IDEA, REMOVE_IDEA, EDIT_IDEA } from '../../actions/ideas';
+const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
 
 const emptyIdea = {
 	title: '',
 	description: '',
-	createdDate: new Date(),
-	updatedDate: new Date()
+	createdDate: new Date().toLocaleDateString("en-UK", options),
+	updatedDate: new Date().toLocaleDateString("en-UK", options)
 };
 
-const initialState = {
+export const initialState = {
   items: [emptyIdea]
 };
 
@@ -21,15 +22,16 @@ export default function(state = initialState, action) {
       };
 	  case REMOVE_IDEA:
 		  copyOfIdeas.splice(action.ideaId, 1);
+		  console.info(copyOfIdeas);
       return {
         ...state,
-	      items: copyOfIdeas
+	      items: [...copyOfIdeas]
       };
 	  case EDIT_IDEA:
 		  copyOfIdeas[action.ideaId] = {
 		  ...state.items[action.ideaId],
-			  title: action.editText,
-			  updatedDate: new Date()
+			  [action.editType]: action.editText,
+			  updatedDate: new Date().toLocaleDateString("en-UK", options)
 		  };
       return {
         ...state,

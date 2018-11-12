@@ -28,8 +28,7 @@ class component extends PureComponent {
 	};
 
 	limitCharacters ({currentTarget}) {
-		const values = maxLength(5)(currentTarget.value);
-		console.info(values);
+		return maxLength(5)(currentTarget.value);
 	};
 
 	editField ({currentTarget}, index) {
@@ -45,8 +44,8 @@ class component extends PureComponent {
 		const {ideas: {items}} = this.props;
 		return (
 			<Grid container spacing={8}>
-				{items.map((item, index) => <Grid item xs={4}>
-					<Paper key={`${item.title}_as`}>
+				{items && items.map((item, index) => <Grid item sm={12} md={4} key={`${index}_idea`}>
+					<Paper>
 						<TextField
 							id={`title_${index}`}
 							label="Title"
@@ -66,11 +65,11 @@ class component extends PureComponent {
 							onBlur={(el) => {this.editField(el, index)}}
 							onChange={this.limitCharacters}
 						/>
-						<TypographyComp variantType='body1'>
-							{item.description}
+						<TypographyComp variantType='overline'>
+								Created: {item.createdDate}
 						</TypographyComp>
 						<TypographyComp variantType='overline'>
-							{item.createdDate.toLocaleDateString("en-UK")}
+								Updated: {item.updatedDate}
 						</TypographyComp>
 						<IconButton color="inherit" onClick={() => {this.deleteIdea(index)}}>
 							<DeleteIcon/>

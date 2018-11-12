@@ -55,11 +55,11 @@ describe('bem test', () => {
       expect(bem(null, null, util)).toEqual(`${block} ${util}`);
     });
 
-    it('with array of string utils', () => {
+    it('with array of string helpers', () => {
       expect(bem(null, null, utils)).toEqual(`${block} ${utils[0]} ${utils[1]}`);
     });
 
-    it('with object of utils', () => {
+    it('with object of helpers', () => {
       expect(bem(null, null, classObj)).toEqual(`${block} valid-class`);
     });
 
@@ -131,11 +131,11 @@ describe('bem test', () => {
       expect(bem(null, null, util)).toEqual(`${prefix}${block} ${util}`);
     });
 
-    it('with array of string utils', () => {
+    it('with array of string helpers', () => {
       expect(bem(null, null, utils)).toEqual(`${prefix}${block} ${utils[0]} ${utils[1]}`);
     });
 
-    it('with object of utils', () => {
+    it('with object of helpers', () => {
       expect(bem(null, null, classObj)).toEqual(`${prefix}${block} valid-class`);
     });
 
